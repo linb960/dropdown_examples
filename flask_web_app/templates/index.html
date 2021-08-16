@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict a Winner</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+      <!-- Add Jumbotron to Header -->
+      <div class="jumbotron text-center">
+        <h1>Predict a Winner</h1>
+        <h2>Women’s Tennis Association --
+            Analyzing Who Wins a Match
+            </h2>
+      </div>
+      <div class="row" id="Pick your players">
+        <div class="col-md-12">
+            <h2>Pick your Players</h2>
+          <div class="col-md-6">
+            <p>Select Player 1</p>
+            <form id="form1" action="/playerone" method="POST" enctype="multipart/form-data">
+                <select id="mySelect" name = "playerone">
+                <option value="Coco Gauff">Coco Gauff</option>
+                <option value="Serena Williams">Serena Williams</option>
+                <option value="Venus Williams">Venus Williams</option>
+                <option value="Naomi Osaka">Naomi Osaka</option>
+                </select>
+                <!-- <input type="submit" value="Select"> -->
+            </form> 
+          </div>
+          <div class="col-md-6">
+            <p>Select Player 2</p>
+            <form id="form1" action="/playertwo" method="POST" enctype="multipart/form-data">
+                <select id="mySelect" name = "playertwo">
+                <option value="Coco Gauff">Coco Gauff</option>
+                <option value="Serena Williams">Serena Williams</option>
+                <option value="Venus Williams">Venus Williams</option>
+                <option value="Naomi Osaka">Naomi Osaka</option>
+                </select>
+                <!-- <input type="submit" value="Select"> -->
+            </form> 
+            <input type="submit" value="Select">
+          </div>
+      </div>
+      <div class="row" id="picks">
+        <div class="col-md-12">
+          <div class="col-md-6">
+            <div id="result">
+                {% if player_1 is defined %}
+                You selected: {{ player_1 }}
+                {% endif %}
+             </div>
+          </div>
+          <div class="col-md-6">
+             <div id="result">
+                {% if player_2 is defined %}
+                You selected: {{ player_2 }}
+                 {% endif %}
+             </div>
+          </div>
+        </div>
+    </div>
+    <br>
+
+      <!-- Section for Featured Image and Facts table --> 
+      <div class="row" id="Results">
+        <div class="col-md-12">
+          <h2>ML Model</h2>
+        </div>
+        <div class="col-md-12">
+          <h2>Results</h4>
+        </div>
+      </div>
+      <br>
+      <div class="row" id="Graphs for Output">
+        <div class="media">
+          <div class="media-body">
+            <h2>Graphs</h2> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
